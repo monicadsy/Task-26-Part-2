@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section>
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title h4">{{ stickynote.name }}</h5>
+            <p class="card-text blockquote">{{ stickynote.description }}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item blockquote-footer"> {{stickynote.creator}} </li>
+            <li class="list-group-item blockquote"> Sets - {{stickynote.sets}} </li>
+            </ul>
+        <div class="card-body">        
+            <a href="{% url 'delete_stickynote' pk=stickynote.pk %}" class="card-link text-danger">delete</a>
+        </div>
+    </div>        
+
+    <a href="{% url 'stickynotes' %}">back</a>
+</section>
+{% endblock %}

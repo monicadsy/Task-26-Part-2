@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="form-group">
+
+    <form action="{% if form.instance.pk %} 
+        {% url 'update_stickynote' pk=form.instance.pk %} 
+        {% else %} {% url 'create_stickynote' %}
+     {% endif %}" method="post">
+
+        {% csrf_token %}
+
+        {{form.as_p}}
+        <button type="submit">save</button>
+
+    </form>
+
+    <a href="{% url 'stickynotes' %}"> back </a>
+
+</section>
+{% endblock %}
